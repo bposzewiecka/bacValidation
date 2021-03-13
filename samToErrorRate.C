@@ -216,10 +216,31 @@ main (int argc, char **argv) {
         }
 
         double idy = (1-((double) errors / len /*(seqHi-seqLow)*/ /*(refHigh - refLo + 1)*/)) * 100;
+
         double idyMismatches =  (1-((double) (errors-indels) / len /*(seqHi-seqLow)*/ /*(refHigh - refLo + 1)*/)) * 100;
-        cout << id << "\t" << ref << "\t" << int(ceil(-1*idy/100*len)) << "\t" << idy << "\t0\t" << (isFwd == true ? seqLow : seqLen-seqHi) << "\t" << (isFwd == true ? seqHi : seqLen-seqLow) << "\t" << seqLen << "\t" <<  (isFwd == true ? 0 : 1) << "\t" << (isFwd == true ? refLo : refLen-refHigh) << "\t" << (isFwd == true ? refHigh : refLen-refLo) << "\t" << refLen << "\t" << len << "\t" << (seqHi-seqLow) << "\t" << (refHigh-refLo) << "\t" << matches << "\t" << errors << "\t" << idyMismatches << "\t" << indels << endl;
+
+        cout << id << "\t" << 
+                ref << "\t" << 
+                int(ceil(-1*idy/100*len)) << "\t" << 
+                idy << "\t" << 
+                "0" << "\t" << 
+                (isFwd == true ? seqLow : seqLen-seqHi) << "\t" << 
+                (isFwd == true ? seqHi : seqLen-seqLow) << "\t" << 
+                seqLen << "\t" <<  
+                (isFwd == true ? 0 : 1) << "\t" << 
+                (isFwd == true ? refLo : refLen-refHigh) << "\t" << 
+                (isFwd == true ? refHigh : refLen-refLo) << "\t" << 
+                refLen << "\t" << 
+                len << "\t" << 
+                (seqHi-seqLow) << "\t" << 
+                (refHigh-refLo) << "\t" << 
+                matches << "\t" << 
+                errors << "\t" << 
+                idyMismatches << "\t" << 
+                indels << endl;
+
         delete[] orig;
     }
     samclose(fp);
-return 0;
+    return 0;
 }
