@@ -1,5 +1,5 @@
 main: bamcat.o samToErrorRate.o
-	g++ -o samToErrorRate -lz -lpthread bamcat.o samToErrorRate.o
+	g++ -o samToErrorRate bamcat.o samToErrorRate.o -lz -lpthread 
 	rm -f bamcat.o
 	rm -f samToErrorRate.o
 
